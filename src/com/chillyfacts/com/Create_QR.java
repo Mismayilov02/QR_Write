@@ -25,13 +25,13 @@ public class Create_QR {
           }
            qr = qr.substring(1, qr.length());
         try {
-            String qrCodeData = "Amcix";
+            String qrCodeData = "";
             String filePath = "C:\\Users\\ismay\\Desktop\\qr.png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
             BitMatrix matrix = new MultiFormatWriter().encode(
-                    new String(qrCodeData.getBytes(charset), charset),
+                    new String(qr.getBytes(charset), charset),
                     BarcodeFormat.QR_CODE, 500, 500, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                     .lastIndexOf('.') + 1), new File(filePath));
